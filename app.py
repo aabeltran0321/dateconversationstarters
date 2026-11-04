@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template, jsonify, request, session
+from flask import Flask, render_template, jsonify, request, session, redirect
 import os
 import random
 
@@ -35,13 +35,18 @@ def load_questions():
 
     return questions
 
-
 @app.route("/")
 def index():
+    return redirect("https://bigboysautomation.com", code=302)
+
+
+#### date conversation starter
+@app.route("/date")
+def index_date():
     return render_template("index.html")
 
 
-@app.route("/api/question", methods=["GET"])
+@app.route("/date/api/question", methods=["GET"])
 def get_question():
     category = request.args.get("category", "all").lower()
 
@@ -92,7 +97,7 @@ def get_question():
     })
 
 
-@app.route("/api/stats")
+@app.route("/date/api/stats")
 def stats():
     questions = load_questions()
 
@@ -107,7 +112,7 @@ def stats():
     })
 
 
-@app.route("/api/reset", methods=["POST"])
+@app.route("/date/api/reset", methods=["POST"])
 def reset_questions():
     session.pop("asked", None)
 
@@ -118,4 +123,4 @@ def reset_questions():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    app.run(debug=True, host="0.0.0.0", port=5001)

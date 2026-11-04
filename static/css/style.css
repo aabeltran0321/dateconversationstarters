@@ -413,3 +413,23 @@ footer {
         text-align: center;
     }
 }
+/* Animate the question text separately */
+.question-content h2 {
+    transition: opacity 0.3s ease;
+}
+
+.question-reveal .question-content h2 {
+    animation: textReveal 0.8s ease 0.1s both;
+}
+
+@keyframes textReveal {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

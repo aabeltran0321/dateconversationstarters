@@ -14,72 +14,84 @@ const questionCard = document.getElementById("questionCard");
 let history = [];
 let historyIndex = -1;
 let isLoading = false;
+let animationTimeout = null;
 
 
-// GET RANDOM QUESTION
-async function getQuestion() {
+// ============================================================
+// ANIMATE QUESTION DISPLAY
+// ============================================================
 
-    if (isLoading) return;
+function animateQuestion(question, category) {
 
-    isLoading = true;
-    nextBtn.disabled = true;
-
-    questionCard.classList.add("changing");
-
-    try {
-
-        const category = categorySelect.value;
-
-        const response = await fetch(
-            `/api/question?category=${category}`
-        );
-
-        const data = await response.json();
-
-        if (!response.ok) {
-            throw new Error(data.error || "Unable to get question.");
-        }
-
-        const questionData = {
-            question: data.question,
-            category: data.category,
-            remaining: data.remaining,
-            total: data.total
-        };
-
-        // Remove forward history when generating a new question
-        history = history.slice(0, historyIndex + 1);
-
-        history.push(questionData);
-        historyIndex = history.length - 1;
-
-        displayQuestion(questionData);
-
-    } catch (error) {
-
-        questionText.textContent = error.message;
-        questionCategory.textContent = "NOTICE";
-
-    } finally {
-
-        questionCard.classList.remove("changing");
-        nextBtn.disabled = false;
-        isLoading = false;
-
-        updateButtons();
+    // Cancel any pending animation
+    if (animationTimeout) {
+        clearTimeout(animationTimeout);
+        animationTimeout = null;
     }
+
+    // Remove existing animation classes
+    questionCard.classList.remove(
+        "question-reveal",
+        "question-exit",
+        "changing"
+    );
+
+    // Start exit animation
+    questionCard.classList.add("question-exit");
+
+    animationTimeout = setTimeout(() => {
+
+        // Update question content
+        questionText.textContent = question;
+        questionCategory.textContent = category.toUpperCase();
+
+        // Remove exit animation
+        questionCard.classList.remove("question-exit");
+
+        // Force browser reflow to restart animation
+        void questionCard.offsetWidth;
+
+        // Start reveal animation
+        questionCard.classList.add("question-reveal");
+
+        // Remove animation class after completion
+        animationTimeout = setTimeout(() => {
+
+            questionCard.classList.remove("question-reveal");
+            animationTimeout = null;
+
+        }, 850);
+
+    }, 250);
 }
 
 
+// ============================================================
 // DISPLAY QUESTION
-function displayQuestion(data) {
+// ============================================================
 
-    questionText.textContent = data.question;
-    questionCategory.textContent = data.category;
+function displayQuestion(data, animate = true) {
 
+    if (animate) {
+
+        animateQuestion(
+            data.question,
+            data.category
+        );
+
+    } else {
+
+        questionText.textContent = data.question;
+        questionCategory.textContent =
+            data.category.toUpperCase();
+
+    }
+
+    // Update question counter
     counter.textContent =
         `${data.remaining} / ${data.total}`;
 
+    // Calculate progress
     const used = data.total - data.remaining;
 
     const percentage = data.total > 0
@@ -92,89 +104,209 @@ function displayQuestion(data) {
 }
 
 
-// PREVIOUS QUESTION
-function previousQuestion() {
+// ============================================================
+// GET RANDOM QUESTION
+// ============================================================
 
-    if (historyIndex <= 0) return;
+async function getQuestion() {
 
-    historyIndex--;
+    if (isLoading) return;
 
-    displayQuestion(history[historyIndex]);
+    isLoading = true;
+    updateButtons();
+
+    try {
+
+        const category = categorySelect.value;
+
+        const response = await fetch(
+            `/date/api/question?category=${encodeURIComponent(category)}`
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(
+                data.error || "Unable to get question."
+            );
+        }
+
+        const questionData = {
+            question: data.question,
+            category: data.category,
+            remaining: data.remaining,
+            total: data.total
+        };
+
+        // Remove forward history when generating a new question
+        history = history.slice(0, historyIndex + 1);
+
+        // Save new question
+        history.push(questionData);
+        historyIndex = history.length - 1;
+
+        // Display with animation
+        displayQuestion(questionData);
+
+    } catch (error) {
+
+        animateQuestion(
+            error.message,
+            "NOTICE"
+        );
+
+    } finally {
+
+        isLoading = false;
+        updateButtons();
+
+    }
 }
 
 
-// NEXT QUESTION
-nextBtn.addEventListener("click", getQuestion);
+// ============================================================
+// PREVIOUS QUESTION
+// ============================================================
+
+function previousQuestion() {
+
+    if (historyIndex <= 0 || isLoading) return;
+
+    historyIndex--;
+
+    const previousData = history[historyIndex];
+
+    // Animate previous question
+    displayQuestion(previousData);
+
+}
 
 
+// ============================================================
+// NEXT BUTTON
+// ============================================================
+
+nextBtn.addEventListener("click", () => {
+
+    getQuestion();
+
+});
+
+
+// ============================================================
 // PREVIOUS BUTTON
-previousBtn.addEventListener("click", previousQuestion);
+// ============================================================
+
+previousBtn.addEventListener("click", () => {
+
+    previousQuestion();
+
+});
 
 
+// ============================================================
 // CHANGE CATEGORY
+// ============================================================
+
 categorySelect.addEventListener("change", async () => {
+
+    if (isLoading) return;
 
     history = [];
     historyIndex = -1;
 
-    await resetPool(false);
+    const resetSuccessful = await resetPool(false);
 
-    getQuestion();
+    if (resetSuccessful) {
+        await getQuestion();
+    }
+
 });
 
 
+// ============================================================
 // RESET QUESTION POOL
+// ============================================================
+
 async function resetPool(showMessage = true) {
+
+    if (isLoading) return false;
 
     try {
 
-        const response = await fetch("/api/reset", {
+        const response = await fetch("/date/api/reset", {
             method: "POST"
         });
 
+        const data = await response.json().catch(() => ({}));
+
         if (!response.ok) {
-            throw new Error("Unable to reset questions.");
+            throw new Error(
+                data.error || "Unable to reset questions."
+            );
         }
 
         history = [];
         historyIndex = -1;
 
         if (showMessage) {
-            questionText.textContent =
-                "Your question pool has been reset. Ready for a fresh conversation?";
 
-            questionCategory.textContent = "RESET";
+            animateQuestion(
+                "Your question pool has been reset. Ready for a fresh conversation?",
+                "RESET"
+            );
 
             counter.textContent = "0 / 0";
             progressBar.style.width = "0%";
 
             updateButtons();
+
         }
+
+        return true;
 
     } catch (error) {
 
         alert(error.message);
+        return false;
 
     }
 }
 
 
+// ============================================================
 // RESET BUTTON
-resetBtn.addEventListener("click", () => {
-    resetPool(true);
+// ============================================================
+
+resetBtn.addEventListener("click", async () => {
+
+    await resetPool(true);
+
 });
 
 
+// ============================================================
 // UPDATE BUTTON STATES
+// ============================================================
+
 function updateButtons() {
 
-    previousBtn.disabled = historyIndex <= 0;
+    previousBtn.disabled =
+        isLoading || historyIndex <= 0;
 
     nextBtn.disabled = isLoading;
+
+    resetBtn.disabled = isLoading;
+
 }
 
 
+// ============================================================
 // INITIAL QUESTION
+// ============================================================
+
 document.addEventListener("DOMContentLoaded", () => {
+
     getQuestion();
+
 });
