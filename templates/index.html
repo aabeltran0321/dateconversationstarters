@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DateTalk | Conversation Starters</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <header class="header">
+        <div class="logo">
+            <span class="logo-icon">♡</span>
+            <span>DateTalk</span>
+        </div>
+
+        <span class="header-label">MAKE EVERY MOMENT COUNT</span>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <div class="hero-tag">✦ A LITTLE HELP FOR YOUR DATE</div>
+
+            <h1>
+                Beyond the usual<br>
+                <span>small talk.</span>
+            </h1>
+
+            <p>
+                Meaningful questions, unexpected conversations,
+                and opportunities to get to know each other better.
+            </p>
+        </section>
+
+        <section class="generator">
+
+            <div class="category-section">
+                <label for="category">CHOOSE YOUR CONVERSATION MOOD</label>
+
+                <select id="category">
+                    <option value="all">♡ Surprise Me (All Questions)</option>
+                    <option value="casual">☀ Casual Dating</option>
+                    <option value="christian">✝ Christian Dating</option>
+                </select>
+            </div>
+
+            <div class="question-card" id="questionCard">
+
+                <div class="card-top">
+                    <span class="question-label">YOUR NEXT QUESTION</span>
+
+                    <span class="category-badge" id="questionCategory">
+                        READY?
+                    </span>
+                </div>
+
+                <div class="question-content">
+                    <div class="quote-icon">“</div>
+
+                    <h2 id="questionText">
+                        Ready to start a meaningful conversation?
+                    </h2>
+                </div>
+
+                <div class="card-bottom">
+                    <span>Take your time. Enjoy the conversation.</span>
+                    <span>♡</span>
+                </div>
+
+            </div>
+
+            <div class="controls">
+
+                <button id="previousBtn" class="secondary-btn" disabled>
+                    ← Previous
+                </button>
+
+                <button id="nextBtn" class="primary-btn">
+                    <span>Next Question</span>
+                    <span>→</span>
+                </button>
+
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-info">
+                    <span>QUESTIONS REMAINING</span>
+                    <span id="counter">0 / 0</span>
+                </div>
+
+                <div class="progress-track">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+
+            <button id="resetBtn" class="reset-btn">
+                ↻ Reset Question Pool
+            </button>
+
+        </section>
+
+        <section class="tips">
+
+            <h3>A little reminder</h3>
+
+            <div class="tips-grid">
+
+                <div class="tip">
+                    <span>♡</span>
+                    <h4>Be Genuine</h4>
+                    <p>Be yourself and answer honestly.</p>
+                </div>
+
+                <div class="tip">
+                    <span>✦</span>
+                    <h4>Listen Well</h4>
+                    <p>Give each other time to share.</p>
+                </div>
+
+                <div class="tip">
+                    <span>✝</span>
+                    <h4>Grow Together</h4>
+                    <p>Build a connection with purpose and faith.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Made for meaningful conversations. ♡</p>
+        <span>DateTalk © 2026</span>
+    </footer>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

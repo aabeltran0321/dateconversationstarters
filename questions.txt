@@ -1,0 +1,132 @@
+
+# ==========================================
+# CASUAL DATING QUESTIONS
+# ==========================================
+
+casual|What was your first impression of me?
+casual|What is your idea of a perfect date?
+casual|What is something that instantly makes you smile?
+casual|If we could travel anywhere together, where would you go?
+casual|What is your most embarrassing childhood memory?
+casual|What is one thing you have always wanted to try?
+casual|Are you more of a morning person or a night person?
+casual|What is your favorite way to spend a lazy Sunday?
+casual|What is the funniest thing that has happened to you recently?
+casual|What is one food you could eat every day?
+casual|If you could have dinner with any person in history, who would it be?
+casual|What song reminds you of a special memory?
+casual|What is your biggest pet peeve?
+casual|What is something people usually misunderstand about you?
+casual|Would you rather have a beach date or a mountain date?
+casual|What is your dream vacation?
+casual|What is one thing on your bucket list?
+casual|What is your favorite childhood cartoon?
+casual|If you won the lottery tomorrow, what would you do first?
+casual|What is the most spontaneous thing you have ever done?
+casual|Do you believe in love at first sight?
+casual|What is your favorite love language?
+casual|What makes you feel appreciated?
+casual|What is your favorite memory with your family?
+casual|What is something you are secretly good at?
+casual|What is your dream job if money were not an issue?
+casual|Would you rather watch movies at home or go to the cinema?
+casual|What is your favorite comfort food?
+casual|What is one thing you cannot live without?
+casual|What is the best compliment someone has ever given you?
+casual|What is something that always makes you laugh?
+casual|If you could relive one day of your life, which day would it be?
+casual|What is your biggest irrational fear?
+casual|What is your favorite season and why?
+casual|Would you rather go on an adventure or have a relaxing date?
+casual|What is one habit you want to develop?
+casual|What is something you wish you had learned earlier?
+casual|What is your favorite thing about yourself?
+casual|What does a healthy relationship look like to you?
+casual|What is one thing you appreciate about our conversations?
+casual|What is your favorite way to receive affection?
+casual|How do you usually handle stress?
+casual|What is something that makes you feel confident?
+casual|What is your favorite type of music?
+casual|Would you rather cook together or order food?
+casual|What is your funniest dating experience?
+casual|What is one thing you want to accomplish this year?
+casual|What does happiness mean to you?
+casual|What is your favorite way to spend quality time?
+casual|What is something you would love for us to experience together?
+casual|What is your ideal weekend?
+casual|Do you prefer deep conversations or playful conversations?
+casual|What is one thing that instantly improves your mood?
+casual|What is a small gesture that means a lot to you?
+casual|What is your favorite thing about getting to know someone?
+casual|What is something you are passionate about?
+casual|What would your perfect anniversary celebration look like?
+casual|What is one thing you want people to remember about you?
+casual|What is your favorite way to celebrate special occasions?
+casual|If our story were a movie, what would its title be?
+casual|What question have you always wanted to ask me?
+
+# ==========================================
+# CHRISTIAN DATING QUESTIONS
+# ==========================================
+
+christian|How has your relationship with God changed over the years?
+christian|What first brought you closer to Christ?
+christian|What is your favorite Bible verse and why?
+christian|What does putting God first in a relationship mean to you?
+christian|How important is prayer in your daily life?
+christian|What is one lesson God has taught you recently?
+christian|Who has influenced your spiritual journey the most?
+christian|What does a Christ-centered relationship look like to you?
+christian|How can couples encourage each other spiritually?
+christian|What is your favorite Bible story?
+christian|How do you usually spend your quiet time with God?
+christian|What does it mean to love someone the way Christ loves the Church?
+christian|What qualities do you look for in a Christian partner?
+christian|How important is attending church together?
+christian|What role should prayer play when making relationship decisions?
+christian|What does biblical love mean to you?
+christian|How do you handle disagreements while maintaining Christian values?
+christian|What is one area of your faith where you want to grow?
+christian|How would you describe your personal walk with Jesus?
+christian|What does forgiveness mean to you in a relationship?
+christian|How can we help each other become better Christians?
+christian|What does waiting on God's timing mean to you?
+christian|How do you discern God's guidance in important decisions?
+christian|What are your thoughts about praying together as a couple?
+christian|What Christian values are non-negotiable for you?
+christian|How important is serving in church or ministry?
+christian|What does spiritual maturity look like in a person?
+christian|How should a Christian couple handle temptation?
+christian|What boundaries do you believe are important in Christian dating?
+christian|How do you balance romance and spiritual growth?
+christian|What is your favorite worship song and why?
+christian|What does submission and mutual respect mean in marriage?
+christian|How do you respond when God seems silent?
+christian|What is something you are currently praying for?
+christian|How can a couple support each other's calling?
+christian|What are your thoughts about dating with the intention of marriage?
+christian|What does purity mean to you in a relationship?
+christian|How important is family involvement in Christian dating?
+christian|How would you handle differences in spiritual beliefs?
+christian|What does being equally yoked mean to you?
+christian|What kind of Christian home would you want to build?
+christian|How should couples make major financial decisions biblically?
+christian|What does leadership and partnership mean in a Christian marriage?
+christian|How do you practice gratitude in your relationship with God?
+christian|What is one Bible passage that guides your decisions?
+christian|How would you want us to grow together spiritually?
+christian|What role should forgiveness play after an argument?
+christian|How do you maintain your faith during difficult seasons?
+christian|What does honoring God with our relationship mean?
+christian|How should a couple handle pressure from friends or society?
+christian|What are your expectations about family and children?
+christian|How do you define a God-honoring marriage?
+christian|What is one ministry or mission you would love to do together?
+christian|How important is accountability in a Christian relationship?
+christian|What do you think makes a relationship spiritually healthy?
+christian|How should we encourage each other when one of us feels spiritually weak?
+christian|What are your thoughts about Christian courtship versus modern dating?
+christian|How can we make decisions together while seeking God's will?
+christian|What does sacrificial love look like in everyday life?
+christian|What kind of legacy would you want your future family to leave?
+christian|If we eventually get married, what spiritual traditions would you want our family to practice?
